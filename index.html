@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5問でわかる！デジタルマーケティング・クイズ</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Noto Sans JP) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        // Tailwind CSSのカスタム設定
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent': '#DC0017',      // メインの赤
+                        'light-gray': '#F7F7F7', // 薄いグレー
+                        'selected': '#D9E2F3',   // 選択時の水色
+                    },
+                    fontFamily: {
+                        'sans': ['"Noto Sans JP"', '"Open Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* カスタムスタイル */
+        body {
+            font-family: 'Noto Sans JP', 'Open Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* クイズセクションのフェードイン・アウト */
+        .quiz-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            will-change: opacity;
+        }
+
+        .quiz-section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* ヘッダーナビのアクティブハイライト */
+        .nav-item {
+            cursor: pointer;
+            padding-bottom: 4px;
+            border-bottom: 3px solid transparent;
+            font-weight: normal;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-item.active {
+            border-bottom-color: #DC0017; /* accent color */
+            font-weight: 700;
+            color: #111827; /* text-gray-900 */
+        }
+
+        /* 選択肢ボタンのスタイル */
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            transform: scale(1.02);
+            background-color: #EFF6FF; /* blue-50 */
+        }
+
+        .option-btn.selected {
+            background-color: #D9E2F3; /* selected color */
+            border-color: #93C5FD; /* blue-300 */
+            font-weight: 700;
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.9;
+        }
+
+        /* 正解・不正解のハイライト */
+        .option-btn.correct {
+            background-color: #D1FAE5; /* green-100 */
+            border-color: #6EE7B7; /* green-300 */
+            font-weight: 700;
+        }
+        
+        .option-btn.incorrect {
+            background-color: #FEE2E2; /* red-100 */
+            border-color: #FCA5A5; /* red-300 */
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body class="bg-light-gray font-sans">
+
+    <!-- ヘッダー -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center">
+            <h1 class="text-lg md:text-xl font-bold text-accent">
+                5問でわかる！デジタルマーケティング・クイズ
+            </h1>
+            <!-- ナビゲーションバー -->
+            <nav class="mt-2 sm:mt-0">
+                <ul class="flex flex-wrap justify-center gap-3 md:gap-5">
+                    <li class="nav-item text-gray-600 hover:text-black" data-target="0">Q1</li>
+                    <li class="nav-item text-gray-600 hover:text-black" data-target="1">Q2</li>
+                    <li class="nav-item text-gray-600 hover:text-black" data-target="2">Q3</li>
+                    <li class="nav-item text-gray-600 hover:text-black" data-target="3">Q4</li>
+                    <li class="nav-item text-gray-600 hover:text-black" data-target="4">Q5</li>
+                    <li class="nav-item text-gray-600 hover:text-black" data-target="5">Result</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="pt-28 md:pt-24 pb-16">
+        <div class="quiz-container max-w-3xl mx-auto bg-white rounded-lg shadow-xl p-6 md:p-10 min-h-[400px]">
+
+            <!-- Q1 -->
+            <section id="q0" class="quiz-section">
+                <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">
+                    <span class="text-accent text-3xl mr-2">Q1:</span>
+                    60代以上のシニア層において、テレビ視聴率とYouTube利用率が逆転するとAIが予測しているのはいつ頃ですか？
+                </h2>
+                <div class="options-grid grid grid-cols-1 gap-4">
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="A">A. 2024年〜2025年</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="B">B. 2028年〜2029年</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="C">C. 2030年以降</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="D">D. 2026年〜2027年</button>
+                </div>
+                <div class="answer-feedback hidden mt-6 p-4 rounded-lg bg-light-gray border border-gray-200">
+                    <p class="font-semibold">あなたの回答: <span class="your-answer font-bold text-blue-700"></span></p>
+                    <p class="font-semibold mt-1">正解: <span class="correct-answer font-bold text-accent"></span></p>
+                    <p class="explanation mt-3 text-sm text-gray-700"></p>
+                </div>
+            </section>
+
+            <!-- Q2 -->
+            <section id="q1" class="quiz-section">
+                <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">
+                    <span class="text-accent text-3xl mr-2">Q2:</span>
+                    SNS施策に成功している企業100社の分析から見えてきた「王道モデル」とは？
+                </h2>
+                <div class="options-grid grid grid-cols-1 gap-4">
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="A">A. X → イベント申込</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="B">B. Instagram → 公式サイト</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="C">C. TikTok → メルマガ登録</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="D">D. YouTube → LINE登録</button>
+                </div>
+                <div class="answer-feedback hidden mt-6 p-4 rounded-lg bg-light-gray border border-gray-200">
+                    <p class="font-semibold">あなたの回答: <span class="your-answer font-bold text-blue-700"></span></p>
+                    <p class="font-semibold mt-1">正解: <span class="correct-answer font-bold text-accent"></span></p>
+                    <p class="explanation mt-3 text-sm text-gray-700"></p>
+                </div>
+            </section>
+
+            <!-- Q3 -->
+            <section id="q2" class="quiz-section">
+                <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">
+                    <span class="text-accent text-3xl mr-2">Q3:</span>
+                    2025年第3四半期の北米デジタル広告市場で「お買い得」状態の特徴は？
+                </h2>
+                <div class="options-grid grid grid-cols-1 gap-4">
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="A">A. 露出増・単価下落</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="B">B. 露出減・単価上昇</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="C">C. 露出減・単価下落</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="D">D. 露出増・単価上昇</button>
+                </div>
+                <div class="answer-feedback hidden mt-6 p-4 rounded-lg bg-light-gray border border-gray-200">
+                    <p class="font-semibold">あなたの回答: <span class="your-answer font-bold text-blue-700"></span></p>
+                    <p class="font-semibold mt-1">正解: <span class="correct-answer font-bold text-accent"></span></p>
+                    <p class="explanation mt-3 text-sm text-gray-700"></p>
+                </div>
+            </section>
+
+            <!-- Q4 -->
+            <section id="q3" class="quiz-section">
+                <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">
+                    <span class="text-accent text-3xl mr-2">Q4:</span>
+                    CPA改善だけを追うアプローチに潜む構造的問題は？
+                </h2>
+                <div class="options-grid grid grid-cols-1 gap-4">
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="A">A. 長期的なCPA高騰</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="B">B. 計測不能</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="C">C. 早期疲弊</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="D">D. 煩雑化</button>
+                </div>
+                <div class="answer-feedback hidden mt-6 p-4 rounded-lg bg-light-gray border border-gray-200">
+                    <p class="font-semibold">あなたの回答: <span class="your-answer font-bold text-blue-700"></span></p>
+                    <p class="font-semibold mt-1">正解: <span class="correct-answer font-bold text-accent"></span></p>
+                    <p class="explanation mt-3 text-sm text-gray-700"></p>
+                </div>
+            </section>
+
+            <!-- Q5 -->
+            <section id="q4" class="quiz-section">
+                <h2 class="text-xl md:text-2xl font-bold mb-6 text-gray-800">
+                    <span class="text-accent text-3xl mr-2">Q5:</span>
+                    「自走」という姿勢が指す最も重要な行動は？
+                </h2>
+                <div class="options-grid grid grid-cols-1 gap-4">
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="A">A. 全て内製化</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="B">B. 完全信頼</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="C">C. 意思決定の主導権</button>
+                    <button class="option-btn w-full text-left p-4 border border-gray-300 rounded-lg" data-option="D">D. 最新ツール導入</button>
+                </div>
+                <div class="answer-feedback hidden mt-6 p-4 rounded-lg bg-light-gray border border-gray-200">
+                    <p class="font-semibold">あなたの回答: <span class="your-answer font-bold text-blue-700"></span></p>
+                    <p class="font-semibold mt-1">正解: <span class="correct-answer font-bold text-accent"></span></p>
+                    <p class="explanation mt-3 text-sm text-gray-700"></p>
+                </div>
+            </section>
+
+            <!-- 結果 -->
+            <section id="q5" class="quiz-section">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">あなたのスコア</h2>
+                    <div class="bg-accent text-white py-8 px-4 rounded-lg shadow-lg">
+                        <p id="score-display" class="text-5xl font-bold">0 / 5</p>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-center my-8 text-gray-800">
+                        詳しい解説や最新トレンドは<br class="sm:hidden">こちらからお問い合わせください
+                    </h3>
+
+                    <!-- Google Form 埋め込み -->
+                    <div class="mx-auto" style="max-width: 702px;">
+                         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScpS_c_8bKLa7bol4gZjEFvAs78ScGWwYvwqeESIptxX-LWGw/viewform?embedded=true" 
+                                 width="100%" 
+                                 height="900" 
+                                 frameborder="0" 
+                                 marginheight="0" 
+                                 marginwidth="0" 
+                                 style="background:#FFFFFF; border:1px solid #ddd; border-radius:10px;">
+                                 読み込んでいます…
+                         </iframe>
+                    </div>
+
+                    <!-- ソーシャルシェア -->
+                    <div class="social-share text-center my-8">
+                        <p class="font-semibold mb-4 text-gray-700">結果をシェアする</p>
+                        <div class="flex justify-center gap-4">
+                            <!-- X (Twitter) -->
+                            <a href="https://twitter.com/intent/tweet?text=デジタルマーケティング・クイズで満点をとりました！&url=" target="_blank" class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-opacity" aria-label="Xでシェア">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                                </svg>
+                            </a>
+                            <!-- Facebook -->
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-opacity" aria-label="Facebookでシェア">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0 0 3.603 0 8.05C0 12.006 2.923 15.11 6.75 15.969V10.398H4.718V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.348H9.25V15.97A8.026 8.026 0 0 0 16 8.049z"/>
+                                </svg>
+                            </a>
+                            <!-- LINE -->
+                            <a href="https://social-plugins.line.me/lineit/share?url=" target="_blank" class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white hover:opacity-80 transition-opacity" aria-label="LINEでシェア">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M22.503 0h-21.006c-.827 0-1.5.673-1.5 1.5v21.006c0 .827.673 1.5 1.5 1.5h21.006c.827 0 1.5-.673 1.5-1.5v-21.006c0-.827-.673-1.5-1.5-1.5zm-4.706 14.887c-.314 0-.57-.08-.76-.238-.188-.158-.28-.393-.28-.698 0-.313.093-.55.28-.708.188-.158.444-.237.76-.237.313 0 .568.08.758.237.188.158.28.395.28.708 0 .305-.093.54-.28.698-.188.158-.444.238-.758.238zm-3.6 0c-.313 0-.568-.08-.758-.238-.188-.158-.28-.393-.28-.698 0-.313.093-.55.28-.708.188-.158.444-.237.758-.237.313 0 .57.08.76.237.188.158.28.395.28.708 0 .305-.093.54-.28.698-.19.158-.447.238-.76.238zm-3.6 0c-.313 0-.568-.08-.758-.238-.188-.158-.28-.393-.28-.698 0-.313.093-.55.28-.708.188-.158.444-.237.758-.237.313 0 .57.08.76.237.188.158.28.395.28.708 0 .305-.093.54-.28.698-.19.158-.447.238-.76.238zm-4.328-10.035h-2.035v8.297h2.035v-8.297zm11.535 4.148c0 .245-.02.488-.06.728-.13.785-.503 1.48-1.118 2.083-.615.603-1.32.905-2.113.905-.28 0-.54-.03-.78-.09-.32-.08-.6-.2-.84-.36-.04-.02-.07-.04-.09-.06l-.11-.08c-.16-.12-.29-.26-.39-.42l-.09-.16c-.08-.14-.15-.29-.19-.45-.04-.16-.06-.31-.06-.47v-4.04c0-.24.02-.48.06-.72.13-.78.503-1.48 1.118-2.083.615-.603 1.32-.905 2.113-.905.28 0 .54.03.78.09.32.08.6.2.84.36.04.02.07.04.09.06l.11.08c.16.12.29.26.39.42l.09.16c.08.14.15.29.19.45.04.16.06.31.06.47v4.043zm-2.03-4.148c0-.313-.093-.55-.28-.708-.188-.158-.444-.237-.76-.237-.313 0-.568.08-.758.237-.188.158-.28.395-.28.708v8.297c0 .313.093.55.28.708.188.158.444.237.758.237.313 0 .57-.08.76-.237.188-.158.28-.395.28-.708v-8.297z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- フッターナビゲーション -->
+        <footer class="footer-nav max-w-3xl mx-auto px-6 md:px-10 flex justify-between items-center">
+            <button id="prevBtn" class="nav-button bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-lg font-semibold transition-all">
+                ◀ 戻る
+            </button>
+            <button id="nextBtn" class="nav-button bg-accent hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition-all">
+                次へ ▶
+            </button>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // クイズデータ
+            const quizData = [
+                {
+                    correct: 'D',
+                    explanation: '総務省のデータを基にしたAI分析では、この期間に利用率の逆転が起こると予測されています。シニア層のデジタルシフトは加速しています。'
+                },
+                {
+                    correct: 'D',
+                    explanation: '成功企業はYouTubeで広く認知を獲得し（リーチ）、LINE公式アカウントで顧客との関係を構築する（ファン化・関係構築）という流れが王道です。'
+                },
+                {
+                    correct: 'A',
+                    explanation: '景気後退懸念から多くの企業が広告予算を削減した結果、CPM（インプレッション単価）やCPC（クリック単価）が低下。同じ予算でもより多くの露出（リーチ）が可能なお買い得状態が発生しました。'
+                },
+                {
+                    correct: 'A',
+                    explanation: 'CPA（顧客獲得単価）の改善のみを追求すると、獲得しやすい「今すぐ客」ばかりをターゲットにしがちです。これにより市場が早期に飽和し、結果として競争が激化。長期的にはCPAが高騰する構造的な問題を抱えています。'
+                },
+                {
+                    correct: 'C',
+                    explanation: '外部パートナーに実務を委託する場合でも、事業主（自社）が戦略の意思決定や判断の主導権を握ることが「自走」の最も重要な核となります。'
+                }
+            ];
+
+            // 状態管理
+            let currentQuestionIndex = 0;
+            const selectedAnswers = new Array(quizData.length).fill(null);
+            
+            // DOM要素
+            const sections = document.querySelectorAll('.quiz-section');
+            const navItems = document.querySelectorAll('.nav-item');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const footerNav = document.querySelector('.footer-nav');
+
+            // --- 関数定義 ---
+
+            /**
+             * 指定されたインデックスのセクション（質問または結果）を表示する
+             * @param {number} index - 表示するセクションのインデックス (0-5)
+             */
+            function showSection(index) {
+                // すべてのセクションを非表示
+                sections.forEach((section, i) => {
+                    section.classList.remove('active');
+                });
+                
+                // 対象のセクションを表示
+                if (sections[index]) {
+                    sections[index].classList.add('active');
+                }
+                
+                // ヘッダーナビのハイライトを更新
+                navItems.forEach((nav, i) => {
+                    nav.classList.toggle('active', i === index);
+                });
+
+                currentQuestionIndex = index;
+                updateFooterNav(index);
+            }
+
+            /**
+             * フッターのナビゲーションボタン（戻る/次へ）の表示を更新する
+             * @param {number} index - 現在のセクションインデックス
+             */
+            function updateFooterNav(index) {
+                // Q1 (index 0) の場合は「戻る」を非表示
+                prevBtn.style.visibility = (index === 0) ? 'hidden' : 'visible';
+
+                // 最後の質問 (index 4) の場合、ボタンのテキストを変更
+                if (index === quizData.length - 1) {
+                    nextBtn.textContent = '結果を見る ▶';
+                } else {
+                    nextBtn.textContent = '次へ ▶';
+                }
+
+                // 結果ページ (index 5) の場合はフッター自体を非表示
+                if (index === sections.length - 1) {
+                    footerNav.style.display = 'none';
+                } else {
+                    footerNav.style.display = 'flex';
+                }
+            }
+
+            /**
+             * 選択肢がクリックされた時の処理
+             * @param {Event} event - クリックイベント
+             * @param {number} questionIndex - 該当する質問のインデックス (0-4)
+             */
+            function handleOptionClick(event, questionIndex) {
+                const selectedOption = event.currentTarget.dataset.option;
+                selectedAnswers[questionIndex] = selectedOption;
+
+                const questionSection = document.getElementById(`q${questionIndex}`);
+                const optionsGrid = questionSection.querySelector('.options-grid');
+                const allOptionBtns = optionsGrid.querySelectorAll('.option-btn');
+                
+                const feedbackEl = questionSection.querySelector('.answer-feedback');
+                const correct = quizData[questionIndex].correct;
+
+                // すべてのボタンのハイライトをリセット
+                allOptionBtns.forEach(btn => {
+                    btn.classList.remove('selected', 'correct', 'incorrect');
+                    btn.disabled = true; // 回答後はボタンを無効化
+                    
+                    const option = btn.dataset.option;
+                    if (option === correct) {
+                        // 正解の選択肢をハイライト
+                        btn.classList.add('correct');
+                    } else if (option === selectedOption) {
+                        // ユーザーが選んだ不正解の選択肢をハイライト
+                        btn.classList.add('incorrect');
+                    }
+                });
+                
+                // 選択したボタンに 'selected' クラスを追加（スタイルを上書きするため）
+                event.currentTarget.classList.add('selected');
+
+                // フィードバック表示
+                feedbackEl.querySelector('.your-answer').textContent = selectedOption;
+                feedbackEl.querySelector('.correct-answer').textContent = `${correct}. ${getOptionText(questionSection, correct)}`;
+                feedbackEl.querySelector('.explanation').textContent = quizData[questionIndex].explanation;
+                feedbackEl.classList.remove('hidden');
+            }
+
+            /**
+             * オプションの記号 (A, B, C, D) から選択肢のテキストを取得する
+             */
+            function getOptionText(questionSection, optionKey) {
+                const btn = questionSection.querySelector(`.option-btn[data-option="${optionKey}"]`);
+                return btn ? btn.textContent.substring(3) : ''; // "A. " の部分を除去
+            }
+
+            /**
+             * スコアを計算して結果ページに表示する
+             */
+            function calculateScore() {
+                let score = 0;
+                for (let i = 0; i < quizData.length; i++) {
+                    if (selectedAnswers[i] === quizData[i].correct) {
+                        score++;
+                    }
+                }
+                document.getElementById('score-display').textContent = `${score} / ${quizData.length}`;
+                
+                // シェアURLを更新 (スコアに応じてテキスト変更)
+                const shareText = `デジタルマーケティング・クイズで ${score} / 5 点でした！`;
+                const encodedText = encodeURIComponent(shareText);
+                const pageUrl = encodeURIComponent(window.location.href);
+
+                document.querySelector('.social-share a[aria-label="Xでシェア"]').href = `https://twitter.com/intent/tweet?text=${encodedText}&url=${pageUrl}`;
+                document.querySelector('.social-share a[aria-label="Facebookでシェア"]').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+                document.querySelector('.social-share a[aria-label="LINEでシェア"]').href = `https://social-plugins.line.me/lineit/share?url=${pageUrl}&text=${encodedText}`;
+            }
+
+            // --- イベントリスナーの設定 ---
+
+            // 「次へ」ボタン
+            nextBtn.addEventListener('click', () => {
+                if (currentQuestionIndex < quizData.length - 1) {
+                    // 次の質問へ
+                    showSection(currentQuestionIndex + 1);
+                } else if (currentQuestionIndex === quizData.length - 1) {
+                    // 結果ページへ
+                    calculateScore();
+                    showSection(sections.length - 1); // 最後のセクション (結果)
+                }
+            });
+
+            // 「戻る」ボタン
+            prevBtn.addEventListener('click', () => {
+                if (currentQuestionIndex > 0) {
+                    showSection(currentQuestionIndex - 1);
+                }
+            });
+
+            // ヘッダーナビゲーション
+            navItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    if (index === sections.length - 1) {
+                        // 結果ページがクリックされたらスコアを計算
+                        calculateScore();
+                    }
+                    showSection(index);
+                });
+            });
+
+            // 選択肢ボタン
+            quizData.forEach((_, index) => {
+                const questionSection = document.getElementById(`q${index}`);
+                const optionBtns = questionSection.querySelectorAll('.option-btn');
+                optionBtns.forEach(btn => {
+                    btn.addEventListener('click', (event) => handleOptionClick(event, index));
+                });
+            });
+
+            // --- 初期化 ---
+            showSection(0); // 最初の質問を表示
+        });
+    </script>
+</body>
+</html>
